@@ -1,0 +1,16 @@
+.task{
+  padding: 10px 20px;
+  background-color: #21589f;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task__finished{
+  background-color: rgba(33, 88, 159, 0.5);
+}
+
+.list_cross{
+  cursor: pointer;
+}
