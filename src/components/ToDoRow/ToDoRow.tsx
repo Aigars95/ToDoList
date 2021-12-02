@@ -7,19 +7,28 @@ type ToDoRowProps = {
   toDoClose: (rowIndex:number) => void;
   toDoCompleted: (rowIndex: number, completed: boolean) => void;
   completed: boolean;
-  editTask: () => void;
+  editTask: (rowIndex: number) => void;
+  priorityColor: string;
 }
 
 const ToDoRow = ({
-  rowIndex, toDoText, toDoClose, toDoCompleted, completed, editTask,
+  rowIndex, toDoText, toDoClose, toDoCompleted, completed, editTask, priorityColor,
 }:ToDoRowProps) => (
-  <div className={completed ? 'task task__finished' : 'task'}>
+  <div
+    className={completed ? 'task task__finished' : 'task'}
+    style={{ backgroundColor: completed ? 'gray' : `${priorityColor}` }}
+  >
+    <input
+      type="checkbox"
+      checked={completed}
+      onChange={(e) => toDoCompleted(rowIndex, e.target.checked)}
+    />
     <span className="list__text">{toDoText}</span>
-    <div>
-      <button onClick={() => editTask()}>Edit</button>
-      <input type="checkbox" onChange={(e) => toDoCompleted(rowIndex, e.target.checked)} />
-      <span onClick={() => toDoClose(rowIndex)} className="list_cross">X</span>
-    </div>
+
+    <button onClick={() => editTask(rowIndex)}>Edit</button>
+
+    <span onClick={() => toDoClose(rowIndex)} className="list_cross">X</span>
+
   </div>
 );
 export default ToDoRow;
