@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 import ToDoRow from './components/ToDoRow/ToDoRow';
 import EditWindow from './components/EditWindow/EditWindow';
@@ -24,7 +24,14 @@ const App = () => {
   const [showTasksByPriority, setShowTasksByPriority] = useState(-1);
   const [showEditWindow, setShowEditWindow] = useState(false);
 
-  const [todoList, setToDOList] = useState<todoListType[]>([]);
+  const [todoList, setToDOList] = useState<todoListType[]>(() => {
+    const localData = localStorage.getItem('todoList');
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+  }, [todoList]);
 
   const [editValue, setEditValue] = useState<editTaskType>({ task: '', taskID: -1, taskPriority: 0 });
 
