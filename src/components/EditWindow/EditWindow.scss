@@ -1,0 +1,17 @@
+.popup--wrapper{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup{
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px 20px;
+}
