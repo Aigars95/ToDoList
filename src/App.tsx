@@ -148,20 +148,21 @@ const App = () => {
             Show done
           </button>
         </nav>
-
-        {tasksToShow.sort((a, b) => a.priority - b.priority)
-          .map((item, index) => (
-            <ToDoRow
-              key={index.toString()}
-              rowIndex={item.taskID}
-              toDoClose={removeTaskHandler}
-              toDoText={item.task}
-              toDoCompleted={completeHandler}
-              completed={item.completed}
-              editTask={openEditWindow}
-              priorityColor={priorityColors[item.priority]}
-            />
-          ))}
+        <div className="task__container">
+          {tasksToShow.sort((a, b) => a.priority - b.priority)
+            .map((item, index) => (
+              <ToDoRow
+                key={index.toString()}
+                rowIndex={item.taskID}
+                toDoClose={removeTaskHandler}
+                toDoText={item.task}
+                toDoCompleted={completeHandler}
+                completed={item.completed}
+                editTask={openEditWindow}
+                priorityColor={priorityColors[item.priority]}
+              />
+            ))}
+        </div>
       </div>
       {showEditWindow
       && (

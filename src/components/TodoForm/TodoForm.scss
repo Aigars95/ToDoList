@@ -3,4 +3,34 @@
   display: grid;
   grid-template-columns: 1fr 100px 100px;
   margin-bottom: 20px;
+  gap: 10px;
+}
+
+.input__task{
+  background: #F2F2F2;
+  border-radius: 4px;
+  padding: 7px 10px;
+  border: none;
+}
+
+.select__task{
+  background: #F2F2F2;
+  border-radius: 4px;
+  padding: 7px 10px;
+  border: none;
+}
+
+.todoForm__button{
+  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: #1676F3;
+  border-radius: 4px;
+  border: none;
 }

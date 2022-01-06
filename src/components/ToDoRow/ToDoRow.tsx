@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ToDoRow.scss';
+import EditIcon from '@mui/icons-material/Edit';
 
 type ToDoRowProps = {
   rowIndex: number;
@@ -25,9 +26,12 @@ const ToDoRow = ({
     />
     <span className="list__text">{toDoText}</span>
 
-    <button onClick={() => editTask(rowIndex)}>Edit</button>
+    <EditIcon
+      className="row__edit"
+      onClick={() => editTask(rowIndex)}
+    />
 
-    <span onClick={() => toDoClose(rowIndex)} className="list_cross">X</span>
+    <span onClick={() => toDoClose(rowIndex)} className="row__cross">X</span>
 
   </div>
 );
